@@ -27,6 +27,17 @@ const btnSolve = document.querySelector("#r5-3");
 const btnClear = document.querySelector("#r1-1");
 const btnPerc = document.querySelector("#r1-3");
 
+// implementation 3ème partie : warnings whatever... 
+const btnTest = document.createElement('button');
+const textContent = document.createTextNode("visible");
+
+btnTest.appendChild(textContent);
+btnTest.style.display="block"
+document.querySelector("#second").appendChild(btnTest);
+btnTest.addEventListener("click", () => onFocus());
+console.log("btn test",btnTest);
+// document.body.appendChild(btnTest)
+
 btnClear.addEventListener("click", () => {
     calculator.forclear();
 })
@@ -49,12 +60,8 @@ buttons.forEach(btn => {
 
 // Essai implémentation des Warnings ()
 
-mediaQueries ()
 
-let btnTest = document.createElement('button')
-let textContent = document.createTextNode("visible");
-btnTest.appendChild(textContent);
-document.body.appendChild(btnTest);
-btnTest.addEventListener("click", onFocus);
-console.log("btn test",btnTest);
-// document.body.appendChild(btnTest)
+
+
+
+mediaQueries ()

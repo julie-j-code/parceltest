@@ -13,6 +13,7 @@ input, button, #result, #btnAdd, #btnSub, #btnMult, #btnDiv {
   vertical-align: middle;
   border: 1px solid gray;
   border-radius: 5px;
+  margin: auto;
   font-size: .8rem;
   line-height: 2rem;
 }
@@ -86,6 +87,10 @@ h1, h2, p, .container, .calculator {
 
 .container:hover .focusTooltip {
   visibility: visible;
+}
+
+#second {
+  flex-direction: column;
 }
 
 .underground {
