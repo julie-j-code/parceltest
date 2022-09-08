@@ -2,11 +2,11 @@
   "name": "parcelbundler",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://julie-j-code.github.io/helloparcel",
+  "homepage": "https://julie-j-code.github.io/parceltest",
   "scripts": {
     "deploy": "gh-pages -d output",
     "start": "parcel serve index.html",
-    "build": "parcel build index.html --dist-dir output"
+    "build": "parcel build index.html --dist-dir output --public-url https://julie-j-code.github.io/parceltest"
   },
   "devDependencies": {
     "parcel": "2.7.0",
