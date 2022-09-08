@@ -1,0 +1,26 @@
+{
+  "name": "parcelbundler",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://julie-j-code.github.io/helloparcel",
+  "scripts": {
+    "deploy": "gh-pages -d output",
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html --dist-dir output"
+  },
+  "devDependencies": {
+    "parcel": "2.7.0",
+    "cssnano": "^5.1.13",
+    "postcss": "^8.4.16"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./output"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
