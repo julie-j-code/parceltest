@@ -63,5 +63,4 @@ buttons.forEach(btn => {
 
 
 
-
-mediaQueries ()
+mediaQueries()
