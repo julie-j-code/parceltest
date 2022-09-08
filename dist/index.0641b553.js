@@ -688,12 +688,12 @@ parcelHelpers.export(exports, "mediaQueries", ()=>mediaQueries);
 const onFocus = ()=>{
     document.querySelector(".underground").style.visibility = "visible";
 };
-const mediaQueries = (()=>{
+const mediaQueries = ()=>{
     window.matchMedia("(max-width: 700px)").matches ? text = "The screen is less or equal to, 700 pixels wide." : text = "The screen is at least 700 pixels wide.";
     const para = document.createElement("p");
     para.innerHTML = text;
     document.getElementById("premier").appendChild(para);
-})();
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["7Aums","bNKaB"], "bNKaB", "parcelRequire2894")
 
