@@ -1,105 +1,91 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-input,
-button {
+input, button {
   width: 50px;
 }
 
-input,
-button,
-#result,
-#btnAdd,
-#btnSub,
-#btnMult,
-#btnDiv {
+input, button, #result, #btnAdd, #btnSub, #btnMult, #btnDiv {
   height: 2rem;
-  line-height: 2rem;
-  font-size: 0.8rem;
-  border: grey solid 1px;
   vertical-align: middle;
+  border: 1px solid gray;
   border-radius: 5px;
+  font-size: .8rem;
+  line-height: 2rem;
 }
 
-.container div,
-.calculator div,
-p {
+.container div, .calculator div, p {
   width: 80%;
   text-align: center;
 }
 
-.calculator,
-.container {
-  display: flex;
+.calculator, .container {
+  width: 450px;
+  min-height: 300px;
+  background-color: #d3d3d3;
+  border-radius: 5px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-  background-color: lightgrey;
-  border-radius: 5px;
-  width: 450px;
-  min-height: 300px;
+  display: flex;
 }
 
 #result {
-  background-color: white;
+  background-color: #fff;
 }
 
 button {
   background-color: red;
 }
 
-h1,
-h2 {
-  font-weight: 400;
+h1, h2 {
   margin: 2rem auto;
+  font-weight: 400;
 }
 
-h1,
-h2,
-p,
-.container,
-.calculator {
+h1, h2, p, .container, .calculator {
   text-align: center;
   margin: 1rem auto;
 }
 
 .container div:first-child {
-  position: relative;
   vertical-align: middle;
   padding-top: 3rem;
+  position: relative;
 }
 
 .focusTooltip {
   visibility: hidden;
   width: 300px;
-  background-color: black;
   color: #fff;
   text-align: center;
+  z-index: 1;
+  background-color: #000;
   border-radius: 6px;
+  margin: auto;
   padding: 5px 0;
   position: absolute;
-  z-index: 1;
-  margin: auto;
+  top: -10px;
   left: 0;
   right: 0;
-  top: -10px;
 }
 
-.focusTooltip::after {
+.focusTooltip:after {
   content: "";
+  border: 5px solid #0000;
+  border-top-color: #000;
+  margin-left: -5px;
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
 }
 
 .container:hover .focusTooltip {
   visibility: visible;
 }
+
+/*# sourceMappingURL=index.4d663569.css.map */
