@@ -536,6 +536,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _calculator = require("./calculator");
 var _calculatorDefault = parcelHelpers.interopDefault(_calculator);
 var _calculs = require("./calculs");
+var _warnings = require("./warnings");
 // première partie qui fonctionne enfin normalement après build et deploy sur gh-pages
 const calculs = new (0, _calculs.Calculs)();
 btnAdd.addEventListener("click", ()=>{
@@ -573,9 +574,18 @@ const buttons = document.querySelectorAll(".calculator button");
 buttons.forEach((btn)=>{
     // console.log(btn.textContent);
     btn.textContent != "=" && btn.textContent != "C" && btn.textContent != "%" && btn.addEventListener("click", ()=>(0, _calculatorDefault.default).display(btn.textContent));
-}); // Et c'est tout pour la deuxième. Impeccable
+});
+// Et c'est tout pour la deuxième. Impeccable
+// Essai implémentation des Warnings ()
+(0, _warnings.mediaQueries)();
+let btnTest = document.createElement("button");
+let textContent = document.createTextNode("visible");
+btnTest.appendChild(textContent);
+document.body.appendChild(btnTest);
+btnTest.addEventListener("click", (0, _warnings.onFocus));
+console.log("btn test", btnTest); // document.body.appendChild(btnTest)
 
-},{"./calculator":"9WiAu","./calculs":"2oiUK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9WiAu":[function(require,module,exports) {
+},{"./calculator":"9WiAu","./calculs":"2oiUK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./warnings":"1dnmG"}],"9WiAu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // Il faut supprimer ce zéro avant le début de toute opération.
@@ -666,6 +676,21 @@ class Calculs {
         return a / b;
     }
 }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1dnmG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "onFocus", ()=>onFocus);
+parcelHelpers.export(exports, "mediaQueries", ()=>mediaQueries);
+const onFocus = ()=>{
+    document.querySelector(".underground").style.visibility = "visible";
+};
+const mediaQueries = ()=>{
+    window.matchMedia("(max-width: 700px)").matches ? text = "The screen is less or equal to, 700 pixels wide." : text = "The screen is at least 700 pixels wide.";
+    const para = document.createElement("p");
+    para.innerHTML = text;
+    document.getElementById("premier").appendChild(para);
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["7Aums","bNKaB"], "bNKaB", "parcelRequire2894")
 

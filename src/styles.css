@@ -103,3 +103,7 @@ p,
 .container:hover .focusTooltip {
   visibility: visible;
 }
+
+.underground{
+  visibility: hidden;
+}

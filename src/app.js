@@ -1,5 +1,6 @@
 import calculator from "./calculator";
 import { Calculs } from "./calculs";
+import { mediaQueries, onFocus } from "./warnings";
 
 // première partie qui fonctionne enfin normalement après build et deploy sur gh-pages
 const calculs = new Calculs();
@@ -45,3 +46,15 @@ buttons.forEach(btn => {
 });
 
 // Et c'est tout pour la deuxième. Impeccable
+
+// Essai implémentation des Warnings ()
+
+mediaQueries ()
+
+let btnTest = document.createElement('button')
+let textContent = document.createTextNode("visible");
+btnTest.appendChild(textContent);
+document.body.appendChild(btnTest);
+btnTest.addEventListener("click", onFocus);
+console.log("btn test",btnTest);
+// document.body.appendChild(btnTest)

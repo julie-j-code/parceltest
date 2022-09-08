@@ -88,4 +88,8 @@ h1, h2, p, .container, .calculator {
   visibility: visible;
 }
 
+.underground {
+  visibility: hidden;
+}
+
 /*# sourceMappingURL=index.4d663569.css.map */
