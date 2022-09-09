@@ -1,6 +1,9 @@
-import calculator from "./calculator";
-import { Calculs } from "./calculs";
+import calculator from "./calculatorModule/calculator";
+import { Calculs } from "./calculatorModule/calculs";
+import searchUsers from "./searchModule/searchUser";
+
 import { mediaQueries, onFocus } from "./warnings";
+
 
 // première partie qui fonctionne enfin normalement après build et deploy sur gh-pages
 const calculs = new Calculs();
@@ -58,9 +61,27 @@ buttons.forEach(btn => {
 
 // Et c'est tout pour la deuxième. Impeccable
 
-// Essai implémentation des Warnings ()
 
 
 
 
-mediaQueries()
+
+searchUsers.getUsers()
+
+// searchInput.addEventListener("input", filterData)
+
+// function filterData(e) {
+
+//   searchResult.innerHTML = ""
+
+//   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
+
+//   const filteredArr = dataArray.filter(el => 
+//     el.name.first.toLowerCase().includes(searchedString) || 
+//     el.name.last.toLowerCase().includes(searchedString) ||
+//     `${el.name.last + el.name.first}`.toLowerCase().replace(/\s/g, "").includes(searchedString) ||
+//     `${el.name.first + el.name.last}`.toLowerCase().replace(/\s/g, "").includes(searchedString)
+//     )
+
+//   createUserList(filteredArr)
+// }

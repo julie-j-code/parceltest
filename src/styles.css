@@ -33,20 +33,33 @@ p {
 }
 
 .calculator,
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
+.container{  
+  margin-top: 50px;
   background-color: lightgrey;
   border-radius: 5px;
+  padding-top: 50px;
+}
+
+.calculator,
+.container {
   width: 450px;
   min-height: 300px;
 }
 
-#result {
-  background-color: white;
+.calculator,
+.container,
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.users_container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
 }
 
 button {
@@ -105,9 +118,34 @@ p,
   visibility: visible;
 }
 
-#second{
+#second {
   flex-direction: column;
 }
-.underground{
+.underground {
   visibility: hidden;
+}
+
+#searchInput{
+  margin: 50px 5%;  
+  
+}
+
+#users_container{
+  margin-bottom: 100px;
+}
+.col {
+  width: 20%;
+  text-align: left;
+}
+.row{
+  text-align: left;
+}
+
+.row:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+#result,#searchInput {
+  background-color: white;
+  width: 80%;
 }

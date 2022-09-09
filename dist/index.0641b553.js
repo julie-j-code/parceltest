@@ -533,9 +533,11 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"bNKaB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _calculator = require("./calculator");
+var _calculator = require("./calculatorModule/calculator");
 var _calculatorDefault = parcelHelpers.interopDefault(_calculator);
-var _calculs = require("./calculs");
+var _calculs = require("./calculatorModule/calculs");
+var _searchUser = require("./searchModule/searchUser");
+var _searchUserDefault = parcelHelpers.interopDefault(_searchUser);
 var _warnings = require("./warnings");
 // première partie qui fonctionne enfin normalement après build et deploy sur gh-pages
 const calculs = new (0, _calculs.Calculs)();
@@ -585,10 +587,114 @@ buttons.forEach((btn)=>{
     btn.textContent != "=" && btn.textContent != "C" && btn.textContent != "%" && btn.addEventListener("click", ()=>(0, _calculatorDefault.default).display(btn.textContent));
 });
 // Et c'est tout pour la deuxième. Impeccable
-// Essai implémentation des Warnings ()
-(0, _warnings.mediaQueries)();
+(0, _searchUserDefault.default).getUsers() // searchInput.addEventListener("input", filterData)
+ // function filterData(e) {
+ //   searchResult.innerHTML = ""
+ //   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
+ //   const filteredArr = dataArray.filter(el => 
+ //     el.name.first.toLowerCase().includes(searchedString) || 
+ //     el.name.last.toLowerCase().includes(searchedString) ||
+ //     `${el.name.last + el.name.first}`.toLowerCase().replace(/\s/g, "").includes(searchedString) ||
+ //     `${el.name.first + el.name.last}`.toLowerCase().replace(/\s/g, "").includes(searchedString)
+ //     )
+ //   createUserList(filteredArr)
+ // }
+;
 
-},{"./calculator":"9WiAu","./calculs":"2oiUK","./warnings":"1dnmG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9WiAu":[function(require,module,exports) {
+},{"./warnings":"1dnmG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./searchModule/searchUser":"lkRgI","./calculatorModule/calculator":"2aMDt","./calculatorModule/calculs":"hclFe"}],"1dnmG":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "onFocus", ()=>onFocus);
+parcelHelpers.export(exports, "mediaQueries", ()=>mediaQueries);
+const onFocus = ()=>{
+    document.querySelector(".underground").style.visibility = "visible";
+};
+const mediaQueries = ()=>{
+    window.matchMedia("(max-width: 700px)").matches ? text = "The screen is less or equal to, 700 pixels wide." : text = "The screen is at least 700 pixels wide.";
+    const para = document.createElement("p");
+    para.innerHTML = text;
+    document.getElementById("premier").appendChild(para);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"lkRgI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+const searchInput = document.querySelector("#searchInput");
+const searchResult = document.querySelector("#users_container");
+let dataArray;
+async function getUsers() {
+    const res = await fetch("https://randomuser.me/api/?nat=fr&results=50");
+    const { results  } = await res.json();
+    console.log(results);
+    dataArray = orderList(results);
+    //   console.log(dataArray);
+    createUserList(dataArray);
+}
+function orderList(data) {
+    const orderedData = data.sort((a, b)=>{
+        if (a.name.last.toLowerCase() < b.name.last.toLowerCase()) return -1;
+        if (a.name.last.toLowerCase() > b.name.last.toLowerCase()) return 1;
+        return 0;
+    });
+    return orderedData;
+}
+function createUserList(usersList) {
+    usersList.forEach((user)=>{
+        // console.log(user);
+        const listItem = document.createElement("div");
+        listItem.setAttribute("class", "row");
+        listItem.innerHTML = `<div class="col">${user.name.last}</div><div class="col">${user.name.first}</div><div class="col">${user.email}</div><div class="col">${user.phone}</div>`;
+        console.log(searchResult);
+        searchResult.appendChild(listItem);
+    });
+}
+searchInput.addEventListener("input", filterData);
+function filterData(e) {
+    searchResult.innerHTML = "";
+    const searchedWord = e.target.value.toLowerCase().replace(/\s/g, "");
+    const filteredDataArray = dataArray.filter((el)=>el.name.first.toLowerCase().includes(searchedWord) || el.name.last.toLowerCase().includes(searchedWord) || `${el.name.last + el.name.first}`.toLowerCase().replace(/\s/g, "").includes(searchedWord) || `${el.name.first + el.name.last}`.toLowerCase().replace(/\s/g, "").includes(searchedWord));
+    // on recrée la liste avec cette fois dataArray filtré
+    createUserList(filteredDataArray);
+}
+const searchUsers = {
+    getUsers,
+    dataArray,
+    orderList,
+    createUserList
+};
+exports.default = searchUsers;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2aMDt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // Il faut supprimer ce zéro avant le début de toute opération.
@@ -631,37 +737,7 @@ const calculator = {
 };
 exports.default = calculator;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"2oiUK":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hclFe":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Calculs", ()=>Calculs);
@@ -679,21 +755,6 @@ class Calculs {
         return a / b;
     }
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1dnmG":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "onFocus", ()=>onFocus);
-parcelHelpers.export(exports, "mediaQueries", ()=>mediaQueries);
-const onFocus = ()=>{
-    document.querySelector(".underground").style.visibility = "visible";
-};
-const mediaQueries = ()=>{
-    window.matchMedia("(max-width: 700px)").matches ? text = "The screen is less or equal to, 700 pixels wide." : text = "The screen is at least 700 pixels wide.";
-    const para = document.createElement("p");
-    para.innerHTML = text;
-    document.getElementById("premier").appendChild(para);
-};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["7Aums","bNKaB"], "bNKaB", "parcelRequire2894")
 
