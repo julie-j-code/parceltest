@@ -1,6 +1,8 @@
+import { promesse, data, Posts } from "../postsModule/searchPosts";
 import calculator from "./calculatorModule/calculator";
 import { Calculs } from "./calculatorModule/calculs";
-import searchUsers from "./searchModule/searchUser";
+import searchUsers from "./searchModule/searchUsers";
+
 
 import { mediaQueries, onFocus } from "./warnings";
 
@@ -62,26 +64,12 @@ buttons.forEach(btn => {
 // Et c'est tout pour la deuxième. Impeccable
 
 
-
-
-
-
 searchUsers.getUsers()
 
-// searchInput.addEventListener("input", filterData)
 
-// function filterData(e) {
+const req=new Posts()
+req.promesse();
 
-//   searchResult.innerHTML = ""
 
-//   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
 
-//   const filteredArr = dataArray.filter(el => 
-//     el.name.first.toLowerCase().includes(searchedString) || 
-//     el.name.last.toLowerCase().includes(searchedString) ||
-//     `${el.name.last + el.name.first}`.toLowerCase().replace(/\s/g, "").includes(searchedString) ||
-//     `${el.name.first + el.name.last}`.toLowerCase().replace(/\s/g, "").includes(searchedString)
-//     )
 
-//   createUserList(filteredArr)
-// }

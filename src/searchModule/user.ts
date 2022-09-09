@@ -1,13 +1,16 @@
-export class User{
-    constructor(first, last, email, phone){
-        this.first=first,
-        this.last=last, 
-        this.email=email,
-        this.phone=phone
+export class User {
+    constructor(first: string, last: string, email: string, phone: string) {
+        this.name.first = first,
+            this.name.last = last,
+            this.email = email,
+            this.phone = phone
     }
-    first:string;
-    last:string;
-    email:string;
-    phone:string;
+    name: { first: string, last: string } = {
+        first: "",
+        last: ""
+    };
+
+    email: string;
+    phone: string;
 
 }

@@ -33,17 +33,14 @@ p {
 }
 
 .calculator,
-.container{  
-  margin-top: 50px;
+.container {
+  margin-top: 2rem;
   background-color: lightgrey;
   border-radius: 5px;
-  padding-top: 50px;
-}
-
-.calculator,
-.container {
+  padding: 2rem;
   width: 450px;
   min-height: 300px;
+  padding-bottom: 2rem;
 }
 
 .calculator,
@@ -78,13 +75,13 @@ p,
 .container,
 .calculator {
   text-align: center;
-  margin: 1rem auto;
+  margin: 2rem auto;
 }
 
 .container div:first-child {
   position: relative;
   vertical-align: middle;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .focusTooltip {
@@ -100,7 +97,7 @@ p,
   margin: auto;
   left: 0;
   right: 0;
-  top: -10px;
+  top: -2rem;
 }
 
 .focusTooltip::after {
@@ -121,31 +118,32 @@ p,
 #second {
   flex-direction: column;
 }
+
 .underground {
   visibility: hidden;
 }
 
-#searchInput{
-  margin: 50px 5%;  
-  
+#searchInput {
+  margin: 2rem 5%;
 }
 
-#users_container{
+#users_container {
   margin-bottom: 100px;
+  padding-bottom: 50px;
 }
 .col {
   width: 20%;
   text-align: left;
 }
-.row{
+.row {
   text-align: left;
 }
-
 .row:nth-child(odd) {
   background-color: lightgrey;
 }
 
-#result,#searchInput {
+#result,
+#searchInput {
   background-color: white;
   width: 80%;
 }
