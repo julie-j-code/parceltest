@@ -533,7 +533,7 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"bNKaB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _searchPosts = require("../postsModule/searchPosts");
+var _searchPosts = require("./postsModule/searchPosts");
 var _calculator = require("./calculatorModule/calculator");
 var _calculatorDefault = parcelHelpers.interopDefault(_calculator);
 var _calculs = require("./calculatorModule/calculs");
@@ -592,7 +592,7 @@ buttons.forEach((btn)=>{
 const req = new (0, _searchPosts.Posts)();
 req.promesse();
 
-},{"../postsModule/searchPosts":"9Ot8Z","./calculatorModule/calculator":"2aMDt","./calculatorModule/calculs":"hclFe","./searchModule/searchUsers":"fVqL8","./warnings":"1dnmG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9Ot8Z":[function(require,module,exports) {
+},{"./postsModule/searchPosts":"a7j8K","./calculatorModule/calculator":"2aMDt","./calculatorModule/calculs":"hclFe","./searchModule/searchUsers":"fVqL8","./warnings":"1dnmG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a7j8K":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 // pour les requêtes GET

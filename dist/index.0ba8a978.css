@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: red;
+}
+
+button:hover {
+  filter: brightness(80%);
+  background-color: green;
+  transition: all .5s ease-in-out;
+  box-shadow: 0 0 3px;
+}
+
+/*# sourceMappingURL=index.0ba8a978.css.map */

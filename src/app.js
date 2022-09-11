@@ -1,4 +1,4 @@
-import { promesse, data, Posts } from "../postsModule/searchPosts";
+import { promesse, data, Posts } from "./postsModule/searchPosts";
 import calculator from "./calculatorModule/calculator";
 import { Calculs } from "./calculatorModule/calculs";
 import searchUsers from "./searchModule/searchUsers";

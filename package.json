@@ -9,8 +9,9 @@
     "build": "parcel build index.html --dist-dir output --public-url https://julie-j-code.github.io/parceltest"
   },
   "devDependencies": {
-    "parcel": "2.7.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "cssnano": "^5.1.13",
+    "parcel": "2.7.0",
     "postcss": "^8.4.16"
   },
   "targets": {
